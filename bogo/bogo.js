@@ -1,10 +1,10 @@
+let roopNum = 0;
+
 function bogoSort(numbers) {
-  let roopNum = 0;
   while (!isSorted(numbers)) {
     shuffle(numbers)
     roopNum++
   }
-  console.log('roop: ', roopNum);
 }
 
 function isSorted(numbers) {
@@ -16,6 +16,7 @@ function isSorted(numbers) {
   return true;
 }
 
+// ダステンフェルドのアルゴリズム（フィッシャー-イェーツの改良版）
 function shuffle(array) {
   for (let i = array.length - 1; i >= 0; i--) {
     const k = Math.floor(Math.random() * (i + 1));
@@ -23,10 +24,13 @@ function shuffle(array) {
   }
 }
 
+/********** Main Routine **********/
 const numbers = [];
 for (let i = 0; i < 10; i++) {
   numbers.push(Math.floor(Math.random() * 100))
 }
-console.log('Before:', numbers)
+console.log('Before:', numbers);
 bogoSort(numbers);
-console.log('After:', numbers)
+console.log('After:', numbers);
+console.log('roop: ', roopNum);
+/**********************************/
